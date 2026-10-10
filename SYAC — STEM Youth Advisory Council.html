@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SYAC — STEM Youth Advisory Council</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1fb;--bg2:#ece3f6;--ink:#1c0f2b;--mut:#5b4a70;--y:#ffd23f;--yd:#8a6a00;--p:#5b2a91;--line:#c9b5e3;--card:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#150a22;--bg2:#1f1133;--ink:#f4eefb;--mut:#b9a7d1;--yd:#ffd23f;--p:#a47be0;--line:#3d2760;--card:#1f1133}}
+:root[data-theme="dark"]{--bg:#150a22;--bg2:#1f1133;--ink:#f4eefb;--mut:#b9a7d1;--yd:#ffd23f;--p:#a47be0;--line:#3d2760;--card:#1f1133}
+*,*:before,*:after{box-sizing:inherit}html{scroll-padding-top:70px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'Space Grotesk',system-ui,sans-serif}
+body:before{content:"";position:fixed;inset:0;z-index:-1;opacity:.5;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97'%3E%3Cpath d='M28 2l26 15v30L28 62 2 47V17zM0 66l28 16 28-16M28 95V62' fill='none' stroke='%23ffd23f' stroke-opacity='.18'/%3E%3C/svg%3E")}
+a{color:inherit}h1,h2,h3{line-height:1.1;margin:0 0 .5em;letter-spacing:-.02em}
+h1{font-size:clamp(2.3rem,6.5vw,4.6rem);font-weight:700}h2{font-size:clamp(1.7rem,4vw,2.7rem)}h3{font-size:1.2rem}
+.lab{font-family:Silkscreen,monospace;font-size:.78rem;color:var(--yd)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}.sec{padding:64px 0}.alt{background:var(--bg2)}
+p{max-width:64ch;margin:0 0 1em}.mut{color:var(--mut)}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:2px solid var(--y)}
+nav{display:flex;align-items:center;gap:6px;min-height:58px}
+.logo{font:700 1.3rem Silkscreen,monospace;text-decoration:none;margin-right:auto}.logo i{font-style:normal;color:var(--y);background:#150a22;padding:0 6px;margin-right:4px}
+nav a.l{padding:8px 10px;text-decoration:none;font-size:.92rem;border-bottom:3px solid transparent}nav a.l:hover,nav a.l[aria-current]{border-color:var(--y)}
+.btn{display:inline-block;background:var(--y);color:#1c0f2b;font-weight:700;padding:13px 22px;text-decoration:none;border:2px solid #1c0f2b;cursor:pointer;font-family:inherit;font-size:1rem;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)}
+.btn.g{background:transparent;color:var(--ink);border-color:var(--ink)}.btn:hover{filter:brightness(1.1)}
+:focus-visible{outline:3px solid var(--p);outline-offset:3px}
+#mb{display:none;background:none;border:2px solid var(--ink);color:var(--ink);padding:6px 12px;font:inherit}
+#links{display:flex;gap:2px;align-items:center}
+@media(max-width:900px){#mb{display:block}#links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;align-items:stretch;gap:0;padding:6px 20px 14px;border-bottom:3px solid var(--y);box-shadow:0 14px 24px rgba(0,0,0,.28)}#links.o{display:flex}}
+.pg{display:none}.pg.on{display:block}
+.hero{padding:56px 0 30px;display:grid;gap:30px;grid-template-columns:1.05fr 1fr;align-items:center}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--y);padding:20px}
+.card[role=button]{cursor:pointer}details.card summary{cursor:pointer;font-weight:700}
+.tag{font-family:Silkscreen,monospace;font-size:.7rem;background:var(--y);color:#1c0f2b;padding:2px 6px}
+.net{width:100%;height:auto;display:block}.net text{font-family:'Space Grotesk',sans-serif;fill:var(--ink)}
+.pulse{stroke-dasharray:4 8;animation:fl 1.6s linear infinite}@keyframes fl{to{stroke-dashoffset:-24}}
+@media(prefers-reduced-motion:reduce){.pulse{animation:none}html{scroll-behavior:auto}*{transition:none!important}}
+.steps{display:grid;gap:8px}.step{display:flex;gap:12px;align-items:center;text-align:left;background:var(--card);color:var(--ink);border:1px solid var(--line);padding:12px 14px;font:inherit;cursor:pointer}
+.step b{font-family:Silkscreen,monospace;color:var(--yd);min-width:26px}.step[aria-pressed=true]{border-color:var(--y);box-shadow:inset 6px 0 0 var(--y)}
+#sd{margin-top:12px;min-height:5.5em}
+.hx{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px}
+.hex{aspect-ratio:1/1.1;display:grid;place-items:center;text-align:center;font-size:.72rem;line-height:1.2;padding:12px;background:var(--card);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);border:0;color:var(--ink);cursor:default}
+.hex.o{background:var(--y);color:#1c0f2b;font-weight:700}.hex.d{background:var(--bg2);outline:1px solid var(--line)}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-weight:700}.flow span{padding:8px 14px;background:var(--card);border:1px solid var(--line)}.flow span:nth-child(odd){border-left:4px solid var(--y)}
+form{display:grid;gap:16px;max-width:680px}.r2{display:grid;gap:16px;grid-template-columns:1fr 1fr}@media(max-width:600px){.r2{grid-template-columns:1fr}}
+label{font-weight:700;font-size:.92rem;display:block;margin-bottom:4px}
+input,select,textarea{width:100%;font:inherit;padding:11px;background:var(--card);color:var(--ink);border:2px solid var(--line)}
+input:invalid:not(:placeholder-shown){border-color:#c0392b}.err{color:#c0392b;font-size:.85rem;min-height:1em}
+.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);opacity:0}.note{border:2px dashed var(--y);padding:14px;font-size:.92rem}
+footer{background:#150a22;color:#f4eefb;padding:44px 0 30px;border-top:4px solid var(--y)}footer a{color:#f4eefb;margin-right:14px}footer .mut{color:#b9a7d1}
+.ph{margin:0}.ph img{width:100%;height:auto;display:block;border:3px solid var(--y);clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,28px 100%,0 calc(100% - 28px))}.ph figcaption{font-size:.85rem;color:var(--mut);margin-top:8px}.two{display:grid;gap:30px;grid-template-columns:1.1fr 1fr;align-items:center}@media(max-width:900px){.two{grid-template-columns:1fr}}
+html{-webkit-text-size-adjust:100%}img,svg{max-width:100%}body{overflow-wrap:break-word}
+input,select,textarea{font-size:16px;min-height:46px}.btn,#mb,.step{min-height:46px}
+@media(max-width:700px){body{font-size:16px}.sec{padding:40px 0}.wrap{padding:0 16px}.hero{padding:28px 0 10px;gap:18px}h1{font-size:clamp(1.9rem,9vw,2.6rem)}h2{font-size:1.55rem}
+.cta .btn{flex:1 1 100%;text-align:center}.btn{padding:14px 18px}.hx{grid-template-columns:repeat(3,1fr);gap:6px}.hex{font-size:.7rem;padding:8px}
+.flow{flex-direction:column;align-items:stretch}.flow span{text-align:center}#filters{flex-direction:row!important;overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px}#filters .step{flex:0 0 auto}
+.card{padding:16px}.step{padding:12px}.ph img{clip-path:none}}
+@media(max-width:900px){#links{max-height:calc(100dvh - 58px);overflow-y:auto}#links a.l{padding:14px 6px;font-size:1.05rem;border-bottom:1px solid var(--line)}#links .btn{margin:12px 0 4px!important;text-align:center;padding:14px 16px!important}}
+</style></head><body>
+<header><div class="wrap"><nav aria-label="Main">
+<a class="logo" href="#home"><i>S</i>YAC</a>
+<button id="mb" aria-expanded="false" aria-controls="links">Menu</button>
+<div id="links">
+<a class="l" href="#about">About</a><a class="l" href="#leadership">Leadership</a><a class="l" href="#network">Network</a><a class="l" href="#initiatives">Initiatives</a><a class="l" href="#opportunities">Opportunities</a><a class="l" href="#updates">Updates</a><a class="l" href="#honey">Honey K-Ohms</a><a class="btn" href="#apply" style="padding:8px 16px;margin-left:6px">Apply to SYAC</a></div></nav></div></header>
+<main>
+
+<section class="pg" id="p-home"><div class="wrap">
+<div class="hero"><div>
+<p class="lab">Proposed statewide student council</p>
+<h1>The future of STEM should have a student voice.</h1>
+<p>SYAC is designed to connect students across the state with schools, universities, STEM professionals, organizations, and state leadership, so students help shape STEM now, not just inherit it.</p>
+<div class="cta"><a class="btn" href="#apply">Apply to SYAC</a><a class="btn g" href="#about">Explore SYAC</a></div></div>
+<svg class="net" id="heroNet" viewBox="0 0 460 420" role="img" aria-label="Network graphic linking students, schools, universities, professionals and state leadership"></svg></div></div>
+
+<div class="sec alt"><div class="wrap"><h2>The idea</h2>
+<p>STEM opportunities already exist: programs, research labs, mentors, scholarships, competitions. The problem is that students don't always have equal access to them, and the people creating opportunities aren't always connected to the students who need them.</p>
+<p>A student at one school may know about a program a student across the state has never heard of. SYAC aims to close that gap, and to give students a say in identifying it.</p>
+<div class="flow" aria-label="Scale"><span>One student</span><span>One school</span><span>One community</span><span>One state</span><span>One connected STEM network</span></div></div></div>
+
+<div class="sec"><div class="wrap"><h2>A bridge, not a replacement</h2>
+<p>SYAC does not replace existing STEM communities. It connects them.</p>
+<svg class="net" id="bigNet" viewBox="0 0 900 330" role="img" aria-label="Statewide STEM network: students, schools, county communities, universities, professors and researchers, engineers, companies and organizations, state leadership"></svg>
+<a class="btn g" href="#network">See the network</a></div></div>
+
+<div class="sec alt"><div class="wrap"><h2>How SYAC works</h2><div class="grid">
+<div class="card"><h3>Student Board</h3><p>16 students lead the council: four officers plus one member per Congressional District.</p></div>
+<div class="card"><h3>County Assembly</h3><p>Students from every county bring local experience into statewide discussions.</p></div>
+<div class="card"><h3>STEM Advisors</h3><p>Two professors or professionals offer guidance. They do not run the council.</p></div></div>
+<p style="margin-top:18px" class="lab">Students lead → Advisors guide → Partners connect → Ideas move forward</p>
+<a class="btn g" href="#leadership">See the structure</a></div></div>
+
+<div class="sec"><div class="wrap"><h2>What SYAC would do</h2><div class="grid">
+<div class="card"><h3>Identify issues</h3><p>Access gaps, missing courses, transportation, technology, mentorship.</p></div>
+<div class="card"><h3>Gather perspectives</h3><p>Surveys, county discussions, student forums, school outreach.</p></div>
+<div class="card"><h3>Develop recommendations</h3><p>Research problems and write proposals for legislators, universities, and organizations.</p></div>
+<div class="card"><h3>Connect and share</h3><p>Link students to professors, researchers, mentors, and opportunities that already exist.</p></div></div></div></div>
+
+<div class="sec alt"><div class="wrap"><p class="lab">Annual statewide initiative</p><h2>One state. One challenge. Student ideas.</h2>
+<p>Each year, SYAC could pick one major STEM issue. Students research it, hear from peers, work with advisors, and bring recommendations to people who can act. The aim isn't one perfect answer. It's real experience on statewide problems and a path for student ideas to be heard.</p><a class="btn g" href="#initiatives">See the model</a></div></div>
+
+<div class="sec"><div class="wrap"><h2>Idea to impact</h2><p>Select a stage to see what happens.</p><div id="idea"></div></div></div>
+
+<div class="sec alt"><div class="wrap"><h2>Your state. Your voice. Your STEM future.</h2><p>Apply to become part of the students helping shape the conversation.</p><a class="btn" href="#apply">Apply to SYAC</a></div></div>
+
+<div class="sec"><div class="wrap two"><div><p class="lab">Where SYAC started</p><h2>The team behind the idea</h2>
+<p>SYAC was created by FTC Team 16557, Honey K-Ohms. After seeing what mentors, engineers, universities, and outreach did for their own STEM journey, they asked: what if students across the whole state had those connections?</p><a class="btn g" href="#honey">Meet Honey K-Ohms</a></div><figure class="ph"><img class="tp" alt="Members of FTC Team 16557, Honey K-Ohms, posing together in maroon team shirts in a school hallway" width="1000" height="480" loading="lazy"><figcaption>FTC Team 16557, Honey K-Ohms, the students who started the idea.</figcaption></figure></div></div></section>
+
+<section class="pg" id="p-about"><div class="sec"><div class="wrap">
+<h1>About SYAC</h1><p class="note">SYAC is a proposed concept. It is not a government body and has no official endorsement, funding, or partners at this time.</p>
+<h2>Mission</h2><p>We exist to give students a real voice in the future of STEM, and to connect students across communities with opportunities, universities, professionals, organizations, and state leaders.</p>
+<h2>Vision</h2><p>A connected statewide STEM community where every student has a pathway into opportunity. Students know what's available, schools share resources, universities and professionals reach students, and communities can name their own gaps.</p>
+<h2>Why SYAC</h2><p>Opportunity exists. Access and connection are uneven. SYAC is built to fix the second part.</p>
+<h2>How it works</h2><p>Students notice a problem, discuss it, bring county perspectives to the Student Board, research with advisors, and send a recommendation to partners and state leaders.</p>
+<a class="btn" href="#apply">Apply to SYAC</a></div></div></section>
+
+<section class="pg" id="p-leadership"><div class="sec"><div class="wrap">
+<h1>Leadership</h1><p>SYAC is student-led. Advisors and partners provide expertise and connections; they don't control decisions.</p>
+<h2>Student Board <span class="tag">16 seats</span></h2>
+<p>President, Vice President, Secretary, Treasurer, and one member per Congressional District. The board picks statewide issues, organizes initiatives, works with the County Assembly and advisors, and carries student perspectives to state leaders. No members are named yet.</p>
+<div class="hx" id="board"></div>
+<h2 style="margin-top:44px">County Assembly</h2><p>Students who aren't on the board take part here. Counties may send different numbers of representatives, based on population. Representatives bring ideas from their schools, discuss concerns, suggest initiatives, give the board feedback, and join statewide projects.</p>
+<div class="flow"><span>Student Board</span><span>County Assembly</span><span>Students and schools</span></div>
+<h2 style="margin-top:44px">STEM Advisors <span class="tag">2 seats</span></h2>
+<p>Two professors or STEM professionals who explain STEM education and careers, connect students with universities and companies, help turn ideas into realistic proposals, and review recommendations.</p>
+<h2>Partners</h2><p>Universities, companies, organizations, researchers, and STEM professionals. None confirmed yet.</p></div></div></section>
+
+<section class="pg" id="p-network"><div class="sec"><div class="wrap">
+<h1>Statewide STEM network</h1><p>SYAC does not replace existing STEM communities. It connects them.</p>
+<svg class="net" id="netPage" viewBox="0 0 900 330" role="img" aria-label="Network graphic"></svg>
+<div class="grid" style="margin-top:24px">
+<div class="card"><h3>Students and schools</h3><p>Share what's available and what's missing.</p></div>
+<div class="card"><h3>Universities</h3><p>Professors and researchers could reach students directly.</p></div>
+<div class="card"><h3>Professionals and organizations</h3><p>Engineers, companies, and nonprofits could mentor and collaborate.</p></div></div>
+<h2 style="margin-top:40px">Statewide representation</h2>
+<p>A conceptual view: each cell is a Congressional District seat. The layout is a placeholder, not a real map, and no participation data exists yet.</p>
+<div class="hx" id="districts"></div></div></div></section>
+
+<section class="pg" id="p-initiatives"><div class="sec"><div class="wrap">
+<h1>One state. One challenge. Student ideas.</h1>
+<p>Each year SYAC could choose one STEM issue, such as environmental technology, transportation, infrastructure, technology access, research opportunities, or sustainability.</p>
+<div class="steps" id="init"></div>
+<h2 style="margin-top:40px">Idea to impact</h2><div id="idea2"></div>
+<p class="note" style="margin-top:20px">No initiative has been selected. Student projects and recommendations will be listed here later.</p></div></div></section>
+
+<section class="pg" id="p-opportunities"><div class="sec"><div class="wrap">
+<h1>Opportunity exchange</h1><p>A future home for opportunities across the state. The cards below are sample placeholders, not real listings or partnerships.</p>
+<div class="flow" id="filters" style="margin-bottom:18px"></div><div class="grid" id="opps"></div></div></div></section>
+
+<section class="pg" id="p-updates"><div class="sec"><div class="wrap">
+<h1>News and updates</h1><div class="card"><h3>Nothing posted yet</h3><p>Updates, events, and surveys will appear here as SYAC develops.</p></div></div></div></section>
+
+<section class="pg" id="p-apply"><div class="sec"><div class="wrap">
+<h1>Your state. Your voice. Your STEM future.</h1>
+<p>SYAC is built around the idea that students should have a voice in the future of STEM. Apply to become part of the students helping shape that conversation.</p>
+<p class="note"><b>Privacy:</b> Information you enter is used only for SYAC application and contact purposes and is never shown publicly. We ask for no more than we need. <b>How it works:</b> your application is emailed to the SYAC organizer and is not posted anywhere public. SYAC is a proposed concept, and applying does not guarantee a seat.</p>
+<form id="f" novalidate data-endpoint="https://formsubmit.co/ajax/hsteve2009@gmail.com" aria-label="SYAC application">
+<div class="r2"><div><label for="fn">First name *</label><input id="fn" required autocomplete="given-name"><div class="err"></div></div><div><label for="ln">Last name *</label><input id="ln" required autocomplete="family-name"><div class="err"></div></div></div>
+<div class="r2"><div><label for="em">Email *</label><input id="em" type="email" required autocomplete="email"><div class="err"></div></div><div><label for="ph">Phone *</label><input id="ph" type="tel" required autocomplete="tel" placeholder="(555) 555-5555"><div class="err"></div></div></div>
+<div class="r2"><div><label for="sc">School *</label><input id="sc" required><div class="err"></div></div><div><label for="co">County *</label><input id="co" required><div class="err"></div></div></div>
+<div class="r2"><div><label for="gr">Grade *</label><select id="gr" required><option value="">Select</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select><div class="err"></div></div><div><label for="cd">Congressional district</label><input id="cd" placeholder="If you know it"></div></div>
+<div><label for="ro">Role you're interested in</label><select id="ro"><option>Student Board</option><option>County Assembly</option><option>Not sure yet</option></select></div>
+<div><label for="in">STEM interests</label><input id="in" placeholder="Biology, computer science, engineering…"></div>
+<div><label for="wy">Why do you want to join? *</label><textarea id="wy" rows="4" required></textarea><div class="err"></div></div>
+<div><label for="ex">STEM and leadership experience</label><textarea id="ex" rows="3"></textarea></div>
+<div class="hp" aria-hidden="true"><label>Leave blank<input id="hp" tabindex="-1" autocomplete="off"></label></div>
+<div><button class="btn" type="submit">Submit application</button></div></form>
+<div id="ok" class="note" role="status" hidden style="max-width:680px"></div></div></div></section>
+
+<section class="pg" id="p-honey"><div class="sec"><div class="wrap">
+<div class="two"><div><p class="lab">FTC Team 16557</p><h1>Honey K-Ohms</h1>
+<p>A FIRST Tech Challenge team from Bayonne High School, New Jersey, competing since 2019. Their slogan: "Trust in C.H.A.O.S.", for Coordination, Harmony, Adaptability, Organization, and Strategy.</p>
+</div><figure class="ph"><img class="tp" alt="Members of FTC Team 16557, Honey K-Ohms, posing together in maroon team shirts in a school hallway" width="1000" height="480" loading="lazy"><figcaption>FTC Team 16557, Honey K-Ohms, the students who started the idea.</figcaption></figure></div><h2>Why they created SYAC</h2><p>The team learned how much mentors, engineers, universities, and community outreach can do for students. They asked how those connections could reach students across the whole state. SYAC is that question, built out.</p>
+<div class="grid"><div class="card"><h3>Robotics and engineering</h3><p>Iterative CAD, testing, and mentorship from engineers and a university professor.</p></div>
+<div class="card"><h3>Outreach</h3><p>Mentoring other FTC teams, workshops for middle schoolers, and international collaboration.</p></div>
+<div class="card"><h3>STEM advocacy</h3><p>Community events, a coloring book, and a CAD tutorial series for younger students.</p></div></div>
+<p style="margin-top:20px"><a class="btn" href="#apply">Apply to SYAC</a></p></div></div></section>
+</main>
+
+<footer><div class="wrap"><h2 style="font-size:1.4rem">STEM Youth Advisory Council</h2>
+<p class="mut">A proposed student-led council giving students a voice in STEM and connecting communities across the state.</p>
+<p><a href="#about">About</a><a href="#leadership">Leadership</a><a href="#network">Network</a><a href="#initiatives">Initiatives</a><a href="#opportunities">Opportunities</a><a href="#apply"><b>Apply to SYAC</b></a></p>
+<p class="mut">Contact and social links: to be added.</p>
+<p class="mut" style="font-size:.85rem">Concept created by FTC Team 16557 — Honey K-Ohms</p></div></footer>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const pages=['home','about','leadership','network','initiatives','opportunities','updates','apply','honey'];
+function route(){let h=location.hash.slice(1)||'home';if(!pages.includes(h))h='home';
+$$('.pg').forEach(p=>p.classList.toggle('on',p.id==='p-'+h));
+$$('nav a.l').forEach(a=>a.getAttribute('href')==='#'+h?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+menu(false);scrollTo(0,0);document.title=(h==='home'?'':h[0].toUpperCase()+h.slice(1)+' — ')+'SYAC';}
+addEventListener('hashchange',route);
+function menu(o){$('#links').classList.toggle('o',o);$('#mb').setAttribute('aria-expanded',o);$('#mb').textContent=o?'Close':'Menu'}
+$('#mb').onclick=()=>menu(!$('#links').classList.contains('o'));
+addEventListener('keydown',e=>{if(e.key==='Escape')menu(false)});
+document.addEventListener('click',e=>{if(!e.target.closest('header'))menu(false)});
+$$('#links a').forEach(a=>a.addEventListener('click',()=>menu(false)));
+const NS='http://www.w3.org/2000/svg';
+function net(id,labels,mode,fs){const s=$(id),n=labels.length,v=mode==='v',w=v?360:(id=='#heroNet'?460:900),h=v?n*74+30:(id=='#heroNet'?420:330);
+s.setAttribute('viewBox',`0 0 ${w} ${h}`);let html='';
+const pts=labels.map((l,i)=>{if(v)return[180+Math.sin(i*1.25)*78,42+i*74];const t=i/(n-1);return[40+t*(w-80),h/2+Math.sin(t*Math.PI*2.2)*(h/3.2)]});
+pts.forEach((p,i)=>{const lr=v&&p[0]<190,K=v?3:3;for(let k=0;k<K;k++){const a=v?(lr?Math.PI*(.6+k*.4):-Math.PI*(.1+k*.4)):k*2.1+i;const x=p[0]+Math.cos(a)*(v?44:34),y=p[1]+Math.sin(a)*(v?34:34);html+=`<line x1="${p[0]}" y1="${p[1]}" x2="${x}" y2="${y}" stroke="var(--line)"/><circle cx="${x}" cy="${y}" r="4" fill="var(--p)"/>`}});
+for(let i=0;i<n-1;i++)html+=`<line x1="${pts[i][0]}" y1="${pts[i][1]}" x2="${pts[i+1][0]}" y2="${pts[i+1][1]}" stroke="var(--y)" stroke-width="3" class="pulse"/>`;
+pts.forEach((p,i)=>{const r=v?20:17,hx=[0,1,2,3,4,5].map(k=>{const a=Math.PI/3*k+Math.PI/6;return(p[0]+r*Math.cos(a)).toFixed(1)+','+(p[1]+r*Math.sin(a)).toFixed(1)}).join(' ');
+html+=`<polygon points="${hx}" fill="var(--y)" stroke="#1c0f2b" stroke-width="2"/>`;
+if(v){const left=p[0]<190;html+=`<text font-size="${fs}" x="${left?p[0]+30:p[0]-30}" y="${p[1]+5}" text-anchor="${left?'start':'end'}">${labels[i]}</text>`}
+else html+=`<text font-size="${fs}" x="${p[0]}" y="${p[1]+(i%2?40:-28)}" text-anchor="middle">${labels[i]}</text>`});
+s.innerHTML=html}
+const L=['Students','Schools','Counties','Universities','Professors','Engineers','Companies','State leaders'],mq=matchMedia('(max-width:700px)');
+function drawNets(){const m=mq.matches?'v':'h';net('#heroNet',['Students','Schools','Universities','Professionals','State leaders'],'h',16);net('#bigNet',L,m,m=='v'?17:14);net('#netPage',L,m,m=='v'?17:14)}
+drawNets();mq.addEventListener('change',drawNets);
+const board=['President','Vice President','Secretary','Treasurer'];
+$('#board').innerHTML=board.map(b=>`<div class="hex o">${b}</div>`).join('')+Array.from({length:12},(_,i)=>`<div class="hex">District ${i+1}</div>`).join('');
+$('#districts').innerHTML=Array.from({length:12},(_,i)=>`<div class="hex d">District ${i+1}<br>seat open</div>`).join('');
+const idea=['A student notices a problem','Students discuss it','County Assembly shares perspectives','Student Board identifies the issue','Research and collaboration','STEM advisors provide guidance','Students develop a recommendation','Partners and professionals give feedback','Recommendation reaches state leaders and organizations'];
+const det=['It starts with something real at one school: a missing course, no lab access, no ride to a program.','Peers compare notes to see whether it affects one school or many.','Representatives from each county say whether it shows up in their communities.','The board decides whether it becomes a statewide focus.','Students gather data, survey peers, and work across counties.','Advisors help turn the idea into a realistic proposal. Students still lead.','The council writes up what it found and what it recommends.','Universities, companies, and organizations react and help refine it.','The finished recommendation is presented to people who can act on it.'];
+function mkIdea(sel){const el=$(sel);el.innerHTML='<div class="steps">'+idea.map((t,i)=>`<button class="step" aria-pressed="${i==0}"><b>${i+1}</b>${t}</button>`).join('')+'</div><div class="card" id="sd'+sel.slice(1)+'" aria-live="polite" style="margin-top:12px">'+det[0]+'</div>';
+el.querySelectorAll('.step').forEach((b,i)=>b.onclick=()=>{el.querySelectorAll('.step').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');$('#sd'+sel.slice(1)).textContent=det[i]})}
+mkIdea('#idea');mkIdea('#idea2');
+const ini=['Identify the problem','Research the issue','Gather student perspectives','Work with advisors and professionals','Develop potential solutions','Collaborate with students across the state','Write recommendations or proposals','Present to state leaders, organizations, and universities'];
+$('#init').innerHTML=ini.map((t,i)=>`<div class="step"><b>${i+1}</b>${t}</div>`).join('');
+const types=['All','Research','Mentorship','Internships','Competitions','Scholarships','Resources'];
+const ops=types.slice(1).map(t=>({t,n:'Sample '+t.toLowerCase()+' listing'}));
+function drawOps(f){$('#filters').innerHTML=types.map(t=>`<button class="step" aria-pressed="${t==f}" data-t="${t}" style="padding:6px 12px">${t}</button>`).join('');
+$('#opps').innerHTML=ops.filter(o=>f=='All'||o.t==f).map(o=>`<div class="card"><span class="tag">SAMPLE</span><h3>${o.n}</h3><p class="mut">Placeholder. Real opportunities will show a provider, eligibility, deadline, and link.</p></div>`).join('');
+$$('#filters button').forEach(b=>b.onclick=()=>drawOps(b.dataset.t))}
+drawOps('All');
+const V={fn:v=>v.trim()?'':'Enter your first name.',ln:v=>v.trim()?'':'Enter your last name.',em:v=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)?'':'Enter a valid email, like name@example.com.',ph:v=>v.replace(/\D/g,'').length>=10&&/^[\d\s().+-]+$/.test(v)?'':'Enter a 10-digit phone number.',sc:v=>v.trim()?'':'Enter your school.',co:v=>v.trim()?'':'Enter your county.',gr:v=>v?'':'Select your grade.',wy:v=>v.trim().length>=20?'':'Write at least a couple of sentences.'};
+$('#f').onsubmit=e=>{e.preventDefault();let bad=null;
+for(const k in V){const el=$('#'+k),m=V[k](el.value);el.parentNode.querySelector('.err').textContent=m;el.setAttribute('aria-invalid',!!m);if(m&&!bad)bad=el}
+if(bad){bad.focus();return}
+if($('#hp').value)return;
+const ep=$('#f').dataset.endpoint,btn=$('#f button[type=submit]'),ok=$('#ok');
+const g=k=>$('#'+k).value.trim();
+const body={_subject:'New SYAC application',_template:'table',_captcha:'true',_honey:'',
+'First name':g('fn'),'Last name':g('ln'),'Email':g('em'),'Phone':g('ph'),'School':g('sc'),'County':g('co'),'Grade':g('gr'),'Congressional district':g('cd'),'Role':g('ro'),'STEM interests':g('in'),'Why join':g('wy'),'Experience':g('ex')};
+btn.disabled=true;btn.textContent='Sending…';
+fetch(ep,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(body)})
+.then(r=>{if(!r.ok)throw 0;return r.json()})
+.then(()=>{$('#f').hidden=true;ok.hidden=false;ok.innerHTML='<b>Thank you. Your application was sent.</b><br>SYAC will use your information only to review your application and contact you. Applying does not guarantee a seat.';ok.tabIndex=-1;ok.focus()})
+.catch(()=>{btn.disabled=false;btn.textContent='Submit application';ok.hidden=false;ok.innerHTML='<b>We could not send your application.</b> Please try again later. (If you are viewing a preview copy of this site, sending is turned off there.)'});
+};
+route();
+</script></body></html>
